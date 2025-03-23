@@ -25,6 +25,14 @@ function displayMovieDetails(movie) {
     if (availableTickets === 0) {
         buyTicketButton.textContent = 'Sold Out';
         buyTicketButton.disabled = true;
+
+        // Add sold-out class to film item
+        const filmItems = document.querySelectorAll('#films li');
+        filmItems.forEach(film => {
+            if (film.textContent.includes(movie.title)) {
+                film.classList.add('sold-out');
+            }
+        });
     } else {
         buyTicketButton.textContent = 'Buy Ticket';
         buyTicketButton.disabled = false;
@@ -57,6 +65,24 @@ function fetchAllMovies() {
                     displayMovieDetails(movie);
                 });
 
+                // Create delete button
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.style.marginLeft = '10px';
+                deleteButton.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent triggering movie details
+
+                    fetch(`http://localhost:3000/films/${movie.id}`, {
+                        method: 'DELETE'
+                    })
+                    .then(() => {
+                        li.remove(); // Remove from DOM
+                        console.log(`Deleted film: ${movie.title}`);
+                    })
+                    .catch(error => console.error('Error deleting film:', error));
+                });
+
+                li.appendChild(deleteButton);
                 filmsList.appendChild(li);
             });
         })
