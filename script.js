@@ -1,7 +1,7 @@
 // Global variables
 let currentMovieId = null;
 
-// Select DOM elements
+//DOM elements
 const poster = document.getElementById('poster');
 const title = document.getElementById('title');
 const runtime = document.getElementById('runtime');
@@ -12,7 +12,7 @@ const buyTicketButton = document.getElementById('buy-ticket');
 
 // Function to display movie details
 function displayMovieDetails(movie) {
-    currentMovieId = movie.id; // Update current movie ID
+    currentMovieId = movie.id; // Update current movie
 
     title.textContent = movie.title;
     runtime.innerHTML = `<strong>Runtime:</strong> ${movie.runtime} minutes`;
@@ -26,7 +26,7 @@ function displayMovieDetails(movie) {
         buyTicketButton.textContent = 'Sold Out';
         buyTicketButton.disabled = true;
 
-        // Add sold-out class to film item
+        //sold-out class to film item
         const filmItems = document.querySelectorAll('#films li');
         filmItems.forEach(film => {
             if (film.textContent.includes(movie.title)) {
@@ -60,7 +60,7 @@ function fetchAllMovies() {
                 li.textContent = movie.title;
                 li.classList.add('film', 'item');
 
-                // Add click event to each movie
+                // click event to each movie
                 li.addEventListener('click', () => {
                     displayMovieDetails(movie);
                 });
