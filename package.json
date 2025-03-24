@@ -4,7 +4,7 @@
   "description": "Welcome to Flatdango — a mini web app for Flatiron Movie Theater. This app allows users to view movie details, purchase tickets, and manage available movies.",
   "main": "script.js",
   "scripts": {
-  "start": "json-server --watch db.json --port 3000 --static false"
+  "start": "json-server --watch db.json --port 3000"
 },
   "repository": {
     "type": "git",
