@@ -1,15 +1,11 @@
-"scripts": {
-  "start": "json-server --watch db.json --port 3000"
-}
-
 {
   "name": "flatdango-project",
   "version": "1.0.0",
   "description": "Welcome to Flatdango — a mini web app for Flatiron Movie Theater. This app allows users to view movie details, purchase tickets, and manage available movies.",
   "main": "script.js",
   "scripts": {
-  "start": "json-server --watch db.json --port 3000 --static ./public"
-},
+    "start": "json-server --watch db.json --port 3000 --static ./public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VWDREAM/phase-1-flatdango-project.git"
